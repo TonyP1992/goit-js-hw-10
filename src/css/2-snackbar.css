@@ -1,0 +1,113 @@
+/* базовое */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --border: #9b9b9b;
+  --text: #111;
+  --bg: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 32px 24px;
+  color: var(--text);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* контейнер формы */
+.form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* заголовки-лейблы */
+.form > label {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* поле delay */
+.form input[type="number"] {
+  display: block;
+  width: 100%;
+  height: 64px;
+  font-size: 28px;
+  padding: 10px 16px;
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+.form input[type="number"]:focus {
+  border-color: #555;
+}
+
+/* блок State */
+.form fieldset {
+  margin: 24px 0 16px;
+  padding: 18px 16px 22px;
+  border: 4px solid var(--border);
+  border-radius: 12px;
+}
+.form legend {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+/* радиокнопки в ряд и крупные */
+.form fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* кастомный вид радиокнопок (большие кружки) */
+.form input[type="radio"] {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+}
+.form input[type="radio"]::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform .12s ease-in-out;
+  background: #333;
+}
+.form input[type="radio"]:checked::after {
+  transform: scale(1);
+}
+
+/* кнопка */
+.form button[type="submit"] {
+  width: 100%;
+  height: 64px;
+  font-size: 28px;
+  font-weight: 700;
+  border: 3px solid var(--border);
+  border-radius: 14px;
+  background: #efefef;
+  cursor: pointer;
+}
+.form button[type="submit"]:hover {
+  background: #e4e4e4;
+}
+.form button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
