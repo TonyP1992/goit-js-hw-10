@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font: 500 16px/1.2 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: #fff;
+  padding: 24px;
+}
+
+/* controls (input + Start) */
+#datetime-picker {
+  width: 260px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: border-color .15s ease;
+}
+
+#datetime-picker:focus {
+  border-color: #9ca3af;
+}
+
+button[data-start]{
+  margin-left: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--btn);
+  color: var(--btn-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .15s ease, transform .02s ease;
+}
+
+button[data-start]:hover:enabled { filter: brightness(0.97); }
+button[data-start]:active:enabled { transform: translateY(1px); }
+
+button[data-start]:disabled{
+  background: var(--btn-disabled);
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* timer layout */
+.timer{
+  display: flex;
+  gap: clamp(16px, 4vw, 40px);
+  align-items: flex-start;
+  margin-top: 16px;
+  padding: clamp(8px, 2vw, 16px) 0;
+  border-top: 1px solid var(--border);
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(72px, 12vw, 120px);
+}
+
+/* big numbers */
+.value{
+  font-weight: 700;
+  font-size: clamp(36px, 9vw, 72px);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+/* labels under numbers */
+.label{
+  margin-top: 6px;
+  font-size: clamp(10px, 2.2vw, 13px);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* optional: make the digits use tabular lining for perfect alignment when font supports it */
+.value, .label { font-variant-numeric: tabular-nums; }
+
+/* small screens tweaks */
+@media (max-width: 480px){
+  body { padding: 16px; }
+  .field { min-width: 64px; }
+}
