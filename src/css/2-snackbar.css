@@ -19,8 +19,8 @@ body {
 
 /* контейнер формы */
 .form {
+  margin-top: 50px;
   max-width: 720px;
-  margin: 0 auto;
 }
 
 /* заголовки-лейблы */
